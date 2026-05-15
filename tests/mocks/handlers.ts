@@ -1,5 +1,6 @@
 import type { RequestHandler } from 'msw'
+import { authHandlers } from '@/shared/mocks/authHandlers'
 
 export const handlers: RequestHandler[] = [
-  // Los handlers de features se agregan en cada etapa
+  ...authHandlers,
 ]

@@ -1,5 +1,6 @@
 import axios, { type AxiosError } from 'axios'
 import type { ApiError } from '../types/api'
+import { useAuthStore } from '@/features/auth/store/authStore'
 
 const apiClient = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL ?? '/api',
@@ -12,7 +13,10 @@ const apiClient = axios.create({
 
 apiClient.interceptors.request.use(
   (config) => {
-    // Etapa 2: inyectar Authorization header desde auth store
+    const token = useAuthStore.getState().token
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`
+    }
     return config
   },
   (error) => Promise.reject(error)

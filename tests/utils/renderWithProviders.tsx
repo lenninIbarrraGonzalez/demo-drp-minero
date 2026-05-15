@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components'
 import { MemoryRouter } from 'react-router-dom'
 import { theme } from '@/app/styles/theme'
 
-const createTestQueryClient = () =>
+export const createTestQueryClient = () =>
   new QueryClient({
     defaultOptions: {
       queries: { retry: false, gcTime: 0 },

@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { ProtectedRoute } from './ProtectedRoute'
 import { PageLayout } from '@/shared/components/organisms/PageLayout'
+import { LoginPage } from '@/features/auth/components/LoginPage'
 
 export const ROUTES = {
   LOGIN:      '/login',
@@ -9,7 +10,6 @@ export const ROUTES = {
   EQUIPMENT:  '/equipment',
 } as const
 
-const LoginPage     = () => <div>Login — Etapa 2</div>
 const DashboardPage = () => <div>Dashboard — Etapa 4</div>
 const OperationsPage = () => <div>Operaciones — Etapa 5</div>
 const EquipmentPage  = () => <div>Equipos — Etapa 6</div>
