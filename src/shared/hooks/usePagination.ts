@@ -10,7 +10,7 @@ export function usePagination({
   initialPageSize = 20,
 }: UsePaginationOptions = {}) {
   const [page, setPage] = useState(initialPage)
-  const [pageSize] = useState(initialPageSize)
+  const pageSize = initialPageSize
 
   const nextPage = useCallback(() => setPage((p) => p + 1), [])
   const prevPage = useCallback(() => setPage((p) => Math.max(1, p - 1)), [])

@@ -1,7 +1,5 @@
-import { http, HttpResponse } from 'msw'
+import type { RequestHandler } from 'msw'
 
-export const handlers = [
+export const handlers: RequestHandler[] = [
   // Los handlers de features se agregan en cada etapa
 ]
-
-export { http, HttpResponse }
