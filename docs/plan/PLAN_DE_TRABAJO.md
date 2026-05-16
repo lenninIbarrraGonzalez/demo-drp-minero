@@ -350,19 +350,19 @@ Al terminar cada etapa:
 
 ---
 
-## Etapa 7 — Integración Final + QA
+## Etapa 7 — Integración Final + QA ✅
 
 ### Qué incluye
 
-- [ ] Playwright: flujo completo login → dashboard → operaciones → crear equipo
-- [ ] Revisión de consistencia visual con skill `erp-mining-design`
-- [ ] `security-review` del proyecto
-- [ ] README con instrucciones de arranque y decisiones técnicas
+- [x] Playwright: flujo completo login → dashboard → operaciones → crear equipo
+- [x] Revisión de consistencia visual con skill `erp-mining-design`
+- [x] `security-review` del proyecto
+- [x] README con instrucciones de arranque y decisiones técnicas
 
 ### Cierre
 
-- [ ] code review final
-- [ ] commit: `chore: final integration, e2e tests and documentation`
+- [x] code review final
+- [x] commit: `chore: final integration, e2e tests and documentation`
 
 ---
 
@@ -383,5 +383,5 @@ Etapa 5: Operaciones              → tests → review → commit  ✅
    ↓
 Etapa 6: Equipos                  → tests → review → commit  ✅
    ↓
-Etapa 7: QA + Playwright + Docs   → review → commit final
+Etapa 7: QA + Playwright + Docs   → review → commit final    ✅
 ```
