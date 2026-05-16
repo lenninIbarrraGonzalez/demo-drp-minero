@@ -300,27 +300,27 @@ Al terminar cada etapa:
 
 ---
 
-## Etapa 5 — Feature Operaciones
+## Etapa 5 — Feature Operaciones ✅
 
 ### Qué incluye
 
-- [ ] TanStack Table: columnas, sort, filter, paginación
-- [ ] `ShiftFilters` conectado a Zustand (filtros globales)
-- [ ] Estados: loading skeleton, error, empty state
-- [ ] `operations/services/shiftsService.ts` — `getShifts(params: ShiftParams): Promise<PaginatedResponse<Shift>>`
-- [ ] `operations/hooks/useShifts.ts` — TanStack Query con params de paginación y filtros desde Zustand
+- [x] TanStack Table: columnas, sort, filter, paginación
+- [x] `ShiftFilters` conectado a Zustand (filtros globales)
+- [x] Estados: loading skeleton, error, empty state
+- [x] `operations/services/shiftsService.ts` — `getShifts(params: ShiftParams): Promise<PaginatedResponse<Shift>>`
+- [x] `operations/hooks/useShifts.ts` — TanStack Query con params de paginación y filtros desde Zustand
 
 ### Pruebas
 
-- [ ] `tests/features/operations/services/shiftsService.test.ts` — paginación, parámetros de filtro
-- [ ] `tests/features/operations/hooks/useShifts.test.ts` — cambia de página, aplica filtros
-- [ ] Tabla — sort modifica el orden, paginación navega correctamente
+- [x] `tests/features/operations/services/shiftsService.test.ts` — paginación, parámetros de filtro
+- [x] `tests/features/operations/hooks/useShifts.test.tsx` — cambia de página, aplica filtros
+- [x] `tests/features/operations/components/ShiftsTable.test.tsx` — sort modifica el orden, skeleton, empty state
 
 ### Cierre
 
-- [ ] `simplify`
-- [ ] code review
-- [ ] commit: `feat(operations): shifts table with filtering and pagination`
+- [x] `simplify`
+- [x] code review
+- [x] commit: `feat(operations): shifts table with filtering and pagination`
 
 ---
 
@@ -379,7 +379,7 @@ Etapa 3: Shared Components        → tests → review → commit  ✅
    ↓
 Etapa 4: Dashboard                → tests → review → commit  ✅
    ↓
-Etapa 5: Operaciones              → tests → review → commit
+Etapa 5: Operaciones              → tests → review → commit  ✅
    ↓
 Etapa 6: Equipos                  → tests → review → commit
    ↓
