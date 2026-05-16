@@ -58,7 +58,7 @@ export function PriceChart({ data, metal }: PriceChartProps) {
               tick={{ fill: theme.colors.text.secondary, fontSize: 11 }}
               axisLine={{ stroke: theme.colors.border }}
               tickLine={false}
-              interval="preserveStartEnd"
+              interval={4}
             />
             <YAxis
               tickFormatter={formatPrice}
@@ -66,6 +66,7 @@ export function PriceChart({ data, metal }: PriceChartProps) {
               axisLine={false}
               tickLine={false}
               width={70}
+              domain={['auto', 'auto']}
             />
             <Tooltip
               contentStyle={{
