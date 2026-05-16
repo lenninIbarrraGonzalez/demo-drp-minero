@@ -66,7 +66,12 @@ export function LoginForm() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<LoginCredentials>()
+  } = useForm<LoginCredentials>({
+    defaultValues: {
+      email: 'admin@erp.com',
+      password: 'password123',
+    },
+  })
 
   const onSubmit = (data: LoginCredentials) => mutate(data)
 

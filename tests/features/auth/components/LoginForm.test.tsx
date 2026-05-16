@@ -29,6 +29,8 @@ describe('LoginForm', () => {
     const user = userEvent.setup()
     renderWithProviders(<LoginForm />)
 
+    await user.clear(screen.getByLabelText(/correo electrónico/i))
+    await user.clear(screen.getByLabelText(/contraseña/i))
     await user.click(screen.getByRole('button', { name: /iniciar sesión/i }))
 
     expect(await screen.findByText(/el correo es requerido/i)).toBeInTheDocument()
@@ -39,8 +41,8 @@ describe('LoginForm', () => {
     const user = userEvent.setup()
     renderWithProviders(<LoginForm />)
 
+    await user.clear(screen.getByLabelText(/correo electrónico/i))
     await user.type(screen.getByLabelText(/correo electrónico/i), 'notanemail')
-    await user.type(screen.getByLabelText(/contraseña/i), 'password123')
     await user.click(screen.getByRole('button', { name: /iniciar sesión/i }))
 
     expect(await screen.findByText(/formato de correo inválido/i)).toBeInTheDocument()
@@ -50,7 +52,7 @@ describe('LoginForm', () => {
     const user = userEvent.setup()
     renderWithProviders(<LoginForm />)
 
-    await user.type(screen.getByLabelText(/correo electrónico/i), 'admin@erp.com')
+    await user.clear(screen.getByLabelText(/contraseña/i))
     await user.type(screen.getByLabelText(/contraseña/i), 'abc')
     await user.click(screen.getByRole('button', { name: /iniciar sesión/i }))
 
@@ -61,7 +63,9 @@ describe('LoginForm', () => {
     const user = userEvent.setup()
     renderWithProviders(<LoginForm />)
 
+    await user.clear(screen.getByLabelText(/correo electrónico/i))
     await user.type(screen.getByLabelText(/correo electrónico/i), 'wrong@erp.com')
+    await user.clear(screen.getByLabelText(/contraseña/i))
     await user.type(screen.getByLabelText(/contraseña/i), 'wrongpass')
     await user.click(screen.getByRole('button', { name: /iniciar sesión/i }))
 
