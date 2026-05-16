@@ -3,12 +3,12 @@ import { ProtectedRoute } from './ProtectedRoute'
 import { PageLayout } from '@/shared/components/organisms/PageLayout'
 import { LoginPage } from '@/features/auth/components/LoginPage'
 import { DashboardPage } from '@/features/dashboard/components/DashboardPage'
+import { OperationsPage } from '@/features/operations/components/OperationsPage'
 import { ROUTES } from './routes'
 
 export { ROUTES } from './routes'
 
-const OperationsPage = () => <div>Operaciones — Etapa 5</div>
-const EquipmentPage  = () => <div>Equipos — Etapa 6</div>
+const EquipmentPage = () => <div>Equipos — Etapa 6</div>
 
 export const AppRouter = () => (
   <Routes>
