@@ -12,8 +12,8 @@ test.describe('Flujo completo ERP Minero', () => {
     await expect(page.getByRole('heading', { name: 'Dashboard' })).toBeVisible()
 
     // --- Dashboard: KPI cards y tabs de metales ---
-    await expect(page.getByText('Oro')).toBeVisible({ timeout: 10000 })
-    await expect(page.getByText('Cobre')).toBeVisible()
+    await expect(page.getByText('Oro').first()).toBeVisible({ timeout: 10000 })
+    await expect(page.getByText('Cobre').first()).toBeVisible()
 
     // --- Operaciones ---
     await page.getByRole('link', { name: /operaciones/i }).click()
