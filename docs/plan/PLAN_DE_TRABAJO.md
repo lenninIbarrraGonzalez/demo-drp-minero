@@ -270,33 +270,33 @@ Al terminar cada etapa:
 
 ---
 
-## Etapa 4 — Feature Dashboard
+## Etapa 4 — Feature Dashboard ✅
 
 ### Qué incluye
 
-- [ ] `KPICard` con precio actual y variación
-- [ ] Gráfico de línea (Recharts): histórico de precios
-- [ ] Gráfico de barras: producción mensual (MSW mock)
-- [ ] Zustand: mina seleccionada filtra los datos
-- [ ] `dashboard/services/metalpriceService.ts` — `getCurrentPrices()`, `getHistoricalPrices(metal, days)`
-- [ ] `dashboard/services/fredService.ts` — `getMiningProductionIndex()`
-- [ ] `dashboard/services/productionService.ts` — `getMonthlyProduction(mineId)` (MSW)
-- [ ] `dashboard/hooks/useMetalPrices.ts` — TanStack Query, staleTime 5min
-- [ ] `dashboard/hooks/usePriceHistory.ts` — TanStack Query con parámetro `metal`
-- [ ] `dashboard/hooks/useProduction.ts` — TanStack Query, filtra por mina seleccionada de Zustand
+- [x] `KPICard` con precio actual y variación
+- [x] Gráfico de línea (Recharts): histórico de precios
+- [x] Gráfico de barras: producción mensual (MSW mock)
+- [x] Zustand: mina seleccionada filtra los datos
+- [x] `dashboard/services/metalpriceService.ts` — `getCurrentPrices()`, `getHistoricalPrices(metal, days)`
+- [x] `dashboard/services/fredService.ts` — `getMiningProductionIndex()`
+- [x] `dashboard/services/productionService.ts` — `getMonthlyProduction(mineId)` (MSW)
+- [x] `dashboard/hooks/useMetalPrices.ts` — TanStack Query, staleTime 5min
+- [x] `dashboard/hooks/usePriceHistory.ts` — TanStack Query con parámetro `metal`
+- [x] `dashboard/hooks/useProduction.ts` — TanStack Query, filtra por mina seleccionada de Zustand
 
 ### Pruebas
 
-- [ ] `tests/features/dashboard/services/metalpriceService.test.ts` — estructura de respuesta
-- [ ] `tests/features/dashboard/hooks/useMetalPrices.test.ts` — loading, success, error
-- [ ] `tests/features/dashboard/hooks/useProduction.test.ts` — filtra por mineId
-- [ ] `tests/features/dashboard/components/KPICard.test.tsx` — valor, delta positivo/negativo
+- [x] `tests/features/dashboard/services/metalpriceService.test.ts` — estructura de respuesta
+- [x] `tests/features/dashboard/hooks/useMetalPrices.test.tsx` — loading, success, error
+- [x] `tests/features/dashboard/hooks/useProduction.test.tsx` — filtra por mineId
+- [x] `tests/features/dashboard/components/KPICard.test.tsx` — valor, delta positivo/negativo
 
 ### Cierre
 
-- [ ] `simplify`
-- [ ] code review
-- [ ] commit: `feat(dashboard): real metal prices and production charts`
+- [x] `simplify`
+- [x] code review
+- [x] commit: `feat(dashboard): real metal prices and production charts`
 
 ---
 
@@ -377,7 +377,7 @@ Etapa 2: Auth                     → tests → review → commit  ✅
    ↓
 Etapa 3: Shared Components        → tests → review → commit  ✅
    ↓
-Etapa 4: Dashboard                → tests → review → commit
+Etapa 4: Dashboard                → tests → review → commit  ✅
    ↓
 Etapa 5: Operaciones              → tests → review → commit
    ↓
