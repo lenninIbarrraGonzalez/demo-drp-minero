@@ -324,29 +324,29 @@ Al terminar cada etapa:
 
 ---
 
-## Etapa 6 — Feature Equipos
+## Etapa 6 — Feature Equipos ✅
 
 ### Qué incluye
 
-- [ ] TanStack Table para listado
-- [ ] `EquipmentForm` con React Hook Form + validaciones complejas
-- [ ] Badge de estado: operativo / mantenimiento / fuera de servicio
-- [ ] `equipment/services/equipmentService.ts` — `getEquipment()`, `createEquipment()`, `updateEquipment()`, `deleteEquipment()`
-- [ ] `equipment/hooks/useEquipment.ts` — TanStack Query para el listado
-- [ ] `equipment/hooks/useEquipmentMutations.ts` — mutations create/update/delete con `invalidateQueries`
+- [x] TanStack Table para listado
+- [x] `EquipmentForm` con React Hook Form + validaciones complejas
+- [x] Badge de estado: operativo / mantenimiento / fuera de servicio
+- [x] `equipment/services/equipmentService.ts` — `getEquipment()`, `createEquipment()`, `updateEquipment()`, `deleteEquipment()`
+- [x] `equipment/hooks/useEquipment.ts` — TanStack Query para el listado
+- [x] `equipment/hooks/useEquipmentMutations.ts` — mutations create/update/delete con `invalidateQueries`
 
 ### Pruebas
 
-- [ ] `tests/features/equipment/services/equipmentService.test.ts` — cada operación CRUD
-- [ ] `tests/features/equipment/hooks/useEquipment.test.ts` — lista, loading, error
-- [ ] `tests/features/equipment/hooks/useEquipmentMutations.test.ts` — cada mutation invalida el cache
-- [ ] `tests/features/equipment/components/EquipmentForm.test.tsx` — validaciones, submit, reset
+- [x] `tests/features/equipment/services/equipmentService.test.ts` — cada operación CRUD
+- [x] `tests/features/equipment/hooks/useEquipment.test.tsx` — lista, loading, error
+- [x] `tests/features/equipment/hooks/useEquipmentMutations.test.tsx` — cada mutation invalida el cache
+- [x] `tests/features/equipment/components/EquipmentForm.test.tsx` — validaciones, submit, reset
 
 ### Cierre
 
-- [ ] `simplify`
-- [ ] code review
-- [ ] commit: `feat(equipment): full CRUD with form validation`
+- [x] `simplify`
+- [x] code review
+- [x] commit: `feat(equipment): full CRUD with form validation`
 
 ---
 
@@ -381,7 +381,7 @@ Etapa 4: Dashboard                → tests → review → commit  ✅
    ↓
 Etapa 5: Operaciones              → tests → review → commit  ✅
    ↓
-Etapa 6: Equipos                  → tests → review → commit
+Etapa 6: Equipos                  → tests → review → commit  ✅
    ↓
 Etapa 7: QA + Playwright + Docs   → review → commit final
 ```
