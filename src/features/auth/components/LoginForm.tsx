@@ -34,6 +34,31 @@ const ApiErrorMessage = styled.div`
   padding: ${({ theme }) => theme.spacing[3]} ${({ theme }) => theme.spacing[4]};
 `
 
+const DemoCredentials = styled.div`
+  background: ${({ theme }) => theme.colors.bg.card};
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  border-radius: ${({ theme }) => theme.borderRadius.md};
+  padding: ${({ theme }) => theme.spacing[3]} ${({ theme }) => theme.spacing[4]};
+  font-size: ${({ theme }) => theme.typography.fontSize.xs};
+  color: ${({ theme }) => theme.colors.text.secondary};
+  line-height: 1.6;
+`
+
+const DemoCredentialsTitle = styled.span`
+  display: block;
+  font-weight: ${({ theme }) => theme.typography.fontWeight.semibold};
+  color: ${({ theme }) => theme.colors.text.muted};
+  margin-bottom: ${({ theme }) => theme.spacing[1]};
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: ${({ theme }) => theme.typography.fontSize.xs};
+`
+
+const DemoCredentialsCode = styled.code`
+  color: ${({ theme }) => theme.colors.text.primary};
+  font-family: monospace;
+`
+
 export function LoginForm() {
   const { mutate, isPending, error } = useLogin()
 
@@ -89,6 +114,13 @@ export function LoginForm() {
       <Button type="submit" isLoading={isPending} style={{ width: '100%' }}>
         Iniciar sesión
       </Button>
+
+      <DemoCredentials>
+        <DemoCredentialsTitle>Acceso demo</DemoCredentialsTitle>
+        <span>Usuario: <DemoCredentialsCode>admin@erp.com</DemoCredentialsCode></span>
+        <br />
+        <span>Contraseña: <DemoCredentialsCode>password123</DemoCredentialsCode></span>
+      </DemoCredentials>
     </FormContainer>
   )
 }
