@@ -2,11 +2,11 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 import { ProtectedRoute } from './ProtectedRoute'
 import { PageLayout } from '@/shared/components/organisms/PageLayout'
 import { LoginPage } from '@/features/auth/components/LoginPage'
+import { DashboardPage } from '@/features/dashboard/components/DashboardPage'
 import { ROUTES } from './routes'
 
 export { ROUTES } from './routes'
 
-const DashboardPage  = () => <div>Dashboard — Etapa 4</div>
 const OperationsPage = () => <div>Operaciones — Etapa 5</div>
 const EquipmentPage  = () => <div>Equipos — Etapa 6</div>
 

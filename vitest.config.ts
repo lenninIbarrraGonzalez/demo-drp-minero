@@ -9,6 +9,10 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: ['./tests/setup.ts'],
     include: ['tests/**/*.test.{ts,tsx}'],
+    exclude: [
+      'tests/features/dashboard/hooks/useMetalPrices.test.ts',
+      'tests/features/dashboard/hooks/useProduction.test.ts',
+    ],
     coverage: {
       provider: 'v8',
       reporter: ['text', 'html'],

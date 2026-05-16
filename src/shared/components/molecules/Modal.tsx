@@ -6,7 +6,7 @@ interface ModalProps {
   isOpen: boolean
   onClose: () => void
   title?: string
-  children: ReactNode
+  children?: ReactNode
 }
 
 const Overlay = styled.div`
