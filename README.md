@@ -1,73 +1,117 @@
-# React + TypeScript + Vite
+# Demo ERP Minero
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Dashboard de gestión minera con datos reales (MetalpriceAPI + FRED) y operaciones simuladas (MSW). Demo técnico que demuestra experiencia frontend con React, TypeScript y el stack moderno de 2024-2025.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Stack tecnológico
 
-## React Compiler
+| Pieza | Rol |
+|---|---|
+| React 19 + TypeScript | Base |
+| Vite | Bundler |
+| Zustand | Auth state, filtros globales, mina seleccionada |
+| TanStack Query v5 | Fetch + cache de APIs y endpoints MSW |
+| TanStack Table v8 | Tabla de operaciones y equipos |
+| React Hook Form | Login + formulario de equipos |
+| Styled Components v6 | Styling completo — solo dark theme |
+| Recharts | Gráficos del dashboard |
+| MSW v2 | Mock del backend operativo |
+| Vitest + RTL | Tests unitarios |
+| Playwright | Tests e2e |
+| Axios | HTTP client base |
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Fuentes de datos
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+| Fuente | Tipo | Qué provee |
+|---|---|---|
+| MetalpriceAPI | API real | Precios actuales e históricos de oro, cobre, litio |
+| FRED (St. Louis Fed) | API real | Índice de producción minera |
+| MSW | Mock de browser | Turnos, equipos e inventario operativo |
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+> En modo desarrollo, todas las APIs (incluyendo MetalpriceAPI y FRED) son interceptadas por MSW — no se necesitan claves de API válidas para correr el proyecto localmente.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Instrucciones de arranque
+
+**Prerrequisitos:** Node 20+
+
+```bash
+# Instalar dependencias
+npm install
+
+# Arrancar el servidor de desarrollo
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+La aplicación corre en `http://localhost:5173`.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+**Credenciales de acceso (simuladas):**
+- Email: `admin@erp.com`
+- Contraseña: `password123`
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## Comandos
+
+```bash
+npm run dev          # servidor de desarrollo
+npm run build        # build de producción
+npm run preview      # previsualizar el build
+npm run typecheck    # chequeo de tipos TypeScript
+npm run lint         # ESLint
+npm test             # Vitest (tests unitarios)
+npm run test:watch   # Vitest en modo watch
+npm run test:e2e     # Playwright (tests e2e)
 ```
+
+---
+
+## Arquitectura
+
+**Feature-based** con Atomic Design solo en `shared/components`.
+
+```
+src/
+├── features/          # auth | dashboard | operations | equipment
+│   └── <feature>/
+│       ├── components/
+│       ├── hooks/        # TanStack Query wrappers
+│       ├── services/     # funciones puras HTTP (sin React)
+│       ├── store/        # Zustand slices (cuando aplica)
+│       └── types/
+├── shared/
+│   ├── components/
+│   │   ├── atoms/        # Button, Input, Badge, Spinner, Label
+│   │   ├── molecules/    # FormField, Modal, Dropdown
+│   │   └── organisms/    # Sidebar, Header, PageLayout
+│   ├── hooks/            # useDebounce, usePagination
+│   ├── services/         # apiClient.ts (axios base)
+│   ├── mocks/            # MSW handlers
+│   └── types/            # ApiResponse<T>, PaginatedResponse<T>
+└── app/
+    ├── router/           # React Router + ProtectedRoute
+    ├── providers/        # QueryClient, ThemeProvider
+    └── styles/           # theme.ts, GlobalStyles, styled.d.ts
+```
+
+**Tests** en carpeta espejo `tests/` que refleja `src/`.
+
+---
+
+## Decisiones técnicas
+
+**Patrón service → hook → component**
+Cada feature separa en tres capas: el service hace la llamada HTTP (función pura, sin React), el hook envuelve el service con TanStack Query o Zustand, y el componente consume el hook sin acceder a la API directamente. Si cambia la API, solo cambia el service.
+
+**MSW en browser**
+Toda la capa de mock corre como Service Worker en el browser. Esto permite que los tests e2e con Playwright usen el mismo worker sin configuración extra — lo que ve el test es lo mismo que ve el usuario.
+
+**Solo dark theme**
+Sin light mode ni toggle. Todos los valores de color vienen del tema (`theme.colors.*`), nunca hardcodeados.
+
+**Zustand para estado global**
+Tres slices independientes: `authStore` (usuario autenticado), `mineStore` (mina seleccionada en el dashboard) y `equipmentFiltersStore` (filtros de la tabla de equipos).
