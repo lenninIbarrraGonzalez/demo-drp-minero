@@ -4,5 +4,5 @@ import { useAuthStore } from '@/features/auth/store/authStore'
 export const ProtectedRoute = () => {
   const isAuthenticated = useAuthStore((state) => state.user !== null)
 
-  return isAuthenticated ? <Outlet /> : <Navigate to="/login" replace />
+  return isAuthenticated ? <Outlet /> : <Navigate to="/" replace />
 }
