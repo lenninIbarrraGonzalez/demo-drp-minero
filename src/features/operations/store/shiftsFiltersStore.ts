@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+import { devtools } from 'zustand/middleware'
 import type { ShiftStatus, ShiftType } from '../types'
 
 interface ShiftsFiltersState {
@@ -22,11 +23,16 @@ const INITIAL_STATE = {
   search: '',
 }
 
-export const useShiftsFiltersStore = create<ShiftsFiltersState>((set) => ({
-  ...INITIAL_STATE,
-  setPage: (page) => set({ page }),
-  setStatus: (status) => set({ status, page: 1 }),
-  setType: (type) => set({ type, page: 1 }),
-  setSearch: (search) => set({ search, page: 1 }),
-  resetFilters: () => set(INITIAL_STATE),
-}))
+export const useShiftsFiltersStore = create<ShiftsFiltersState>()(
+  devtools(
+    (set) => ({
+      ...INITIAL_STATE,
+      setPage: (page) => set({ page }, false, 'shifts/setPage'),
+      setStatus: (status) => set({ status, page: 1 }, false, 'shifts/setStatus'),
+      setType: (type) => set({ type, page: 1 }, false, 'shifts/setType'),
+      setSearch: (search) => set({ search, page: 1 }, false, 'shifts/setSearch'),
+      resetFilters: () => set(INITIAL_STATE, false, 'shifts/resetFilters'),
+    }),
+    { name: 'ShiftsFiltersStore' }
+  )
+)

@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+import { devtools } from 'zustand/middleware'
 import type { Mine } from '../types'
 
 const INITIAL_MINES: Mine[] = [
@@ -13,8 +14,13 @@ interface MineState {
   selectMine: (id: string) => void
 }
 
-export const useMineStore = create<MineState>((set) => ({
-  selectedMineId: INITIAL_MINES[0].id,
-  mines: INITIAL_MINES,
-  selectMine: (id) => set({ selectedMineId: id }),
-}))
+export const useMineStore = create<MineState>()(
+  devtools(
+    (set) => ({
+      selectedMineId: INITIAL_MINES[0].id,
+      mines: INITIAL_MINES,
+      selectMine: (id) => set({ selectedMineId: id }, false, 'mine/selectMine'),
+    }),
+    { name: 'MineStore' }
+  )
+)
