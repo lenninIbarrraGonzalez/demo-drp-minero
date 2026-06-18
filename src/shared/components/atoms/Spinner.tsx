@@ -1,11 +1,12 @@
 import styled, { keyframes } from 'styled-components'
 
-type SpinnerSize = 'sm' | 'md' | 'lg'
+type SpinnerSize = 'sm' | 'md' | 'lg' | 'xl'
 
 const sizes: Record<SpinnerSize, string> = {
   sm: '14px',
   md: '20px',
   lg: '32px',
+  xl: '40px',
 }
 
 const spin = keyframes`

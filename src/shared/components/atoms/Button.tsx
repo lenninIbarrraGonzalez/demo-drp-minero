@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import type { ButtonHTMLAttributes } from 'react'
 import { Spinner } from './Spinner'
 
-export type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'danger'
+export type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'danger' | 'success'
 export type ButtonSize = 'sm' | 'md' | 'lg'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -56,6 +56,11 @@ const variantMap: Record<ButtonVariant, ReturnType<typeof css>> = {
     color: ${({ theme }) => theme.colors.text.primary};
     border: none;
     &:hover:not(:disabled) { opacity: 0.85; }
+  `,
+  success: css`
+    background: ${({ theme }) => theme.colors.accent.success};
+    color: ${({ theme }) => theme.colors.text.primary};
+    border: none;
   `,
 }
 
