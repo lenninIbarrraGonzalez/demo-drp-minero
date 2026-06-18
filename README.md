@@ -10,7 +10,7 @@
   <img alt="Tests" src="https://img.shields.io/badge/tests-Vitest%20%2B%20Playwright-6E9F18?logo=vitest&logoColor=white" />
 </p>
 
-**🔗 Demo en vivo:** [demo-drp-minero.vercel.app](https://demo-drp-minero.vercel.app/)
+**🔗 Demo en vivo:** <a href="https://demo-drp-minero.vercel.app/" target="_blank" rel="noopener noreferrer">demo-drp-minero.vercel.app</a>
 
 ---
 
