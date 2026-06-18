@@ -4,10 +4,11 @@ import { AppProviders } from './app/providers'
 import { AppRouter } from './app/router'
 
 async function prepare() {
-  if (import.meta.env.DEV) {
-    const { worker } = await import('./shared/mocks/browser')
-    await worker.start({ onUnhandledRequest: 'bypass' })
-  }
+  const { worker } = await import('./shared/mocks/browser')
+  await worker.start({
+    onUnhandledRequest: 'bypass',
+    serviceWorker: { url: `${import.meta.env.BASE_URL}mockServiceWorker.js` },
+  })
 }
 
 prepare().then(() => {
