@@ -14,6 +14,11 @@
 
 ## Vistas de la aplicación
 
+### Landing — presentación y acceso
+Página de inicio pública con hero, secciones animadas (features, slider de cotizaciones, métricas y testimonios) y el formulario de login embebido en la zona más visible.
+
+![Landing](docs/screenshots/01-landing.png)
+
 ### Dashboard — precios de metales y producción
 Tarjetas de cotización en tiempo real (oro, cobre, litio), histórico de precios y comparación producción real vs. objetivo. Selector de mina y de metal.
 
@@ -29,12 +34,10 @@ Listado de maquinaria con estado operativo, filtros, búsqueda y altas/ediciones
 
 ![Equipos](docs/screenshots/04-equipment.png)
 
-<table>
-  <tr>
-    <td width="50%"><img alt="Login" src="docs/screenshots/01-login.png" /><br/><sub><b>Login</b> — acceso con credenciales demo pre-cargadas</sub></td>
-    <td width="50%"><img alt="Formulario de equipo" src="docs/screenshots/05-equipment-form.png" /><br/><sub><b>Alta de equipo</b> — formulario validado en modal</sub></td>
-  </tr>
-</table>
+### Alta de equipo — formulario en modal
+Formulario validado con React Hook Form para crear y editar maquinaria.
+
+![Alta de equipo](docs/screenshots/05-equipment-form.png)
 
 ---
 
