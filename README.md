@@ -1,6 +1,40 @@
 # Demo ERP Minero
 
-Dashboard de gestión minera con datos reales (MetalpriceAPI + FRED) y operaciones simuladas (MSW). Demo técnico que demuestra experiencia frontend con React, TypeScript y el stack moderno de 2024-2025.
+> Dashboard de gestión minera con datos reales (MetalpriceAPI + FRED) y operaciones simuladas (MSW). Demo técnico que demuestra experiencia frontend con React, TypeScript y el stack moderno de 2024-2025.
+
+<p>
+  <img alt="React" src="https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white" />
+  <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-6.0-3178C6?logo=typescript&logoColor=white" />
+  <img alt="Vite" src="https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white" />
+  <img alt="Styled Components" src="https://img.shields.io/badge/styled--components-6-DB7093?logo=styledcomponents&logoColor=white" />
+  <img alt="Tests" src="https://img.shields.io/badge/tests-Vitest%20%2B%20Playwright-6E9F18?logo=vitest&logoColor=white" />
+</p>
+
+---
+
+## Vistas de la aplicación
+
+### Dashboard — precios de metales y producción
+Tarjetas de cotización en tiempo real (oro, cobre, litio), histórico de precios y comparación producción real vs. objetivo. Selector de mina y de metal.
+
+![Dashboard](docs/screenshots/02-dashboard.png)
+
+### Operaciones — tabla de turnos
+Tabla paginada con TanStack Table: filtros por estado y tipo de turno, búsqueda por operador o equipo, y badges de estado.
+
+![Operaciones](docs/screenshots/03-operations.png)
+
+### Equipos — inventario y CRUD
+Listado de maquinaria con estado operativo, filtros, búsqueda y altas/ediciones mediante formulario en modal (React Hook Form).
+
+![Equipos](docs/screenshots/04-equipment.png)
+
+<table>
+  <tr>
+    <td width="50%"><img alt="Login" src="docs/screenshots/01-login.png" /><br/><sub><b>Login</b> — acceso con credenciales demo pre-cargadas</sub></td>
+    <td width="50%"><img alt="Formulario de equipo" src="docs/screenshots/05-equipment-form.png" /><br/><sub><b>Alta de equipo</b> — formulario validado en modal</sub></td>
+  </tr>
+</table>
 
 ---
 
@@ -114,4 +148,4 @@ Toda la capa de mock corre como Service Worker en el browser. Esto permite que l
 Sin light mode ni toggle. Todos los valores de color vienen del tema (`theme.colors.*`), nunca hardcodeados.
 
 **Zustand para estado global**
-Tres slices independientes: `authStore` (usuario autenticado), `mineStore` (mina seleccionada en el dashboard) y `equipmentFiltersStore` (filtros de la tabla de equipos).
+Slices independientes envueltos con el middleware `devtools` (acciones nombradas, trazables en Redux DevTools): `authStore` (usuario autenticado), `mineStore` (mina seleccionada), `equipmentFiltersStore` y `shiftsFiltersStore` (filtros de las tablas).
